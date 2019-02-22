@@ -33,9 +33,16 @@ $('#form').bootstrapValidator({
             max: 6,
             message: '用户名长度必须在6到30之间'
           },
+          //callback 专门用来配置回调函数
+          callback:{
+            message:'用户名错误'
+          }
+          
+
+          }
          
-        }
-      },
+        },
+    
       //密码;
       password:{
         validators: {
@@ -49,12 +56,16 @@ $('#form').bootstrapValidator({
             max: 12,
             message: '用户名长度必须在6到30之间'
           },
+          callback:{
+            message:'密码错误'
+          }
          
         }
       },
     }
-  
   });
+  
+
 
    /* 
     2. 使用 submit 按钮, 会进行表单提交, 此时表单校验插件会立刻进行校验
@@ -75,12 +86,23 @@ $('#form').bootstrapValidator({
         dataType: 'json',
         success: function( info ) {
           console.log( info );
-  
+        // updateStatus 更新;
+        // $('#form').data('booostrapValidator')
           if (info.error === 1000) {
-            alert('用户名不存在');
+             //调用插件实例方法;更新状态
+               // 调用插件实例方法, 更新username字段状态成失败状态
+          // updateStatus( field, status, validator );
+          // 参数1: 需要更新的字段名称
+          // 参数2: 需要更新成的状态  VALID 成功  INVALID 失败
+          // 参数3: 配置校验规则, 将来会用配置的规则的 message 进行提示
+             $('#form').data("bootstrapValidator").updateStatus('username','INVALID','callback')
+            // alert('用户名不存在');
+
           }
-          if (info.error === 1001) {
-            alert('密码错误');
+           
+             if (info.error === 1001) {
+              $('#form').data("bootstrapValidator").updateStatus('password','INVALID','callback')
+            // alert('密码错误');
           }
           if (info.success) {
             // 登录成功, 跳转首页
@@ -94,8 +116,11 @@ $('#form').bootstrapValidator({
   $("[type = 'reset']").on('click',function(){
         
 
-    //重置表单样式;
+    //重置表单样式;状态重置;
+    //reset 本身就可以重置内容;
+    // resetForm(false) //只重置状态(默认)
+    // resetForm(true) 重置状态和内容
     $('form').data('bootstrapValidator').resetForm();
   })
 
-})
+});
