@@ -1,0 +1,108 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
+/* 去除默认样式 */
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a{
+    display: block;
+    /* width: 100%; */
+}
+img {
+    display: block;
+    width: 100%;
+  }
+
+.lt_container{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    min-width: 320px;
+    max-width: 640px;
+    background-color: white;
+    padding-top: 45px;
+    padding-bottom: 55px;
+    margin: 0 auto;
+    position: relative;
+}
+.lt_header{
+     height: 45px;
+     width: 100%;
+     position: absolute;
+     top: 0;
+     left: 0;
+     background-color: #006699;
+     padding-left: 45px;
+     padding-right: 45px;
+     z-index: 999;
+}
+.lt_header .icon_left,
+.lt_header .icon_right{
+    height: 45px;
+    width: 45px;
+    line-height: 45px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    /* background-color: blue */
+    color: white;
+}
+.lt_header .icon_left{
+  
+    left: 0;
+  
+}
+.lt_header .icon_right{
+    right: 0;
+}
+.lt_header h3 {
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+    font-weight: normal;
+  }
+
+  .lt_footer{
+      position: absolute;
+      height: 55px;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background-color: #006699;
+      z-index: 999;
+  }
+  .lt_footer li{
+      float: left;
+      width: 25%;
+  }
+  .lt_footer li a{
+      display: block;
+      padding-top: 8px;
+      color: white;
+      text-align: center;
+  }
+  .lt_footer li a.current{
+      color: orange;
+  }
+  .lt_footer li a p {
+    color: #fff;
+    margin: 0;
+  }
+  .lt_footer li a.current p {
+    color: orange;
+  }
+
+  
+.lt_main {
+    width: 100%;
+    height: 100%;
+    /* 由于mui内部基于 定位实现的区域滚动, 所以外层 lt_main 必须加定位 */
+    position: relative;
+  }

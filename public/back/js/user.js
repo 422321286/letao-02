@@ -34,6 +34,7 @@ $(function(){
             // 总页数
             totalPages: Math.ceil(info.total / info.size),
             // 给页码添加点击事件
+            //前面的三个参数都没用,恩, 最后一个参数为当前页数
             onPageClicked: function (a, b, c, page) {
               console.log(page);
               // 更新 currentPage, 并且重新渲染即可
